@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop-up com Iframe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .popup-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 400px;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botão para abrir o pop-up -->
+    <button id="openPopupBtn">Abrir Pop-up</button>
+
+    <!-- O Pop-up -->
+    <div id="myPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closePopupBtn">&times;</span>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTH0TW_5ku-lWXIgNAfsUYZ4a95kEZ9dlP6Nx4alPfUdMYwsNqgyaSlmjfhX_HeK8Y5Mt2NK8akWSCt/pubhtml?gid=0&single=true" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Obtém os elementos do botão e do pop-up
+        var openPopupBtn = document.getElementById("openPopupBtn");
+        var popup = document.getElementById("myPopup");
+        var closePopupBtn = document.getElementById("closePopupBtn");
+
+        // Quando o usuário clicar no botão, abre o pop-up
+        openPopupBtn.onclick = function() {
+            popup.style.display = "block";
+        }
+
+        // Quando o usuário clicar no "X", fecha o pop-up
+        closePopupBtn.onclick = function() {
+            popup.style.display = "none";
+        }
+
+        // Quando o usuário clicar fora do pop-up, ele também será fechado
+        window.onclick = function(event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
