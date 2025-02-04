@@ -38,6 +38,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative; /* Necessário para posicionar o botão de fechar */
         }
 
         iframe {
@@ -46,24 +47,10 @@
             border: none;
         }
 
-        .close-btn {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close-btn:hover,
-        .close-btn:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Estilo para o botão de fechar dentro do pop-up */
         .close-popup-btn {
-            display: inline-block;
+            position: absolute; /* Posiciona o botão em relação à .popup-content */
+            top: 10px;  /* Distância do topo */
+            right: 10px; /* Distância da direita */
             background-color: #f44336;
             color: white;
             padding: 10px 20px;
@@ -71,8 +58,6 @@
             cursor: pointer;
             font-size: 18px;
             border-radius: 5px;
-            margin-top: 20px;
-            text-align: center;
         }
 
         .close-popup-btn:hover {
@@ -85,7 +70,6 @@
     <!-- O Pop-up -->
     <div id="myPopup" class="popup">
         <div class="popup-content">
-         
             <iframe src="https://docs.google.com/spreadsheets/d/1H5_oQls_Syun-iucaPFzz4mrI-9V4So0hF1UhAVbKWI/edit?usp=sharing"></iframe>
             <button class="close-popup-btn" id="closeButton">Fechar</button>
         </div>
@@ -94,13 +78,7 @@
     <script>
         // Obtém os elementos do pop-up
         var popup = document.getElementById("myPopup");
-        var closePopupBtn = document.getElementById("closePopupBtn");
         var closeButton = document.getElementById("closeButton");
-
-        // Quando o usuário clicar no "X", fecha o pop-up
-      //  closePopupBtn.onclick = function() {
-      //      popup.style.display = "none";
-      //  }
 
         // Quando o usuário clicar no botão "Fechar", fecha o pop-up
         closeButton.onclick = function() {
