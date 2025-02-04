@@ -10,7 +10,7 @@
         }
 
         .popup {
-            display: none;
+            display: block; /* Faz o pop-up aparecer imediatamente */
             position: fixed;
             z-index: 1;
             left: 0;
@@ -28,8 +28,9 @@
             margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%;
-            max-width: 800px;
+            width: 100%;
+            height: 100%;
+            /*max-width: 800px;*/
         }
 
         iframe {
@@ -55,9 +56,6 @@
 </head>
 <body>
 
-    <!-- Botão para abrir o pop-up -->
-    <button id="openPopupBtn">Abrir Pop-up</button>
-
     <!-- O Pop-up -->
     <div id="myPopup" class="popup">
         <div class="popup-content">
@@ -67,15 +65,9 @@
     </div>
 
     <script>
-        // Obtém os elementos do botão e do pop-up
-        var openPopupBtn = document.getElementById("openPopupBtn");
+        // Obtém os elementos do pop-up
         var popup = document.getElementById("myPopup");
         var closePopupBtn = document.getElementById("closePopupBtn");
-
-        // Quando o usuário clicar no botão, abre o pop-up
-        openPopupBtn.onclick = function() {
-            popup.style.display = "block";
-        }
 
         // Quando o usuário clicar no "X", fecha o pop-up
         closePopupBtn.onclick = function() {
